@@ -1,0 +1,812 @@
+//compress: false
+
+@import "fonts.css";
+
+// Color settings
+@white: #fff;
+@black: #000;
+@grey: #777;
+@yellow: #FFC600;
+
+@line-after-white: @white;
+@line-after-grey: #C5C5C5;
+
+@title-color: @black;
+@subtitle-color:#595959; 
+
+//main settings
+html {
+    overflow-x: hidden;
+    font-size: 10px;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Myriad Pro', sans-serif;
+    
+}
+
+// img {
+//     max-width: 100%;
+//     height: auto;   
+// }
+
+a {
+    outline: none;
+}
+
+section {
+    width: 100%;
+}
+
+//container
+.wrapper {
+    max-width: 1200px;
+    height: auto;
+    margin: 0 auto;
+}
+
+// images with content in center
+.icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+// head-text for sections
+.head-text {
+    font-weight: 600;
+    display: inline-block;
+    font-size: 3rem;
+    span {
+        font-size: 5rem;
+    }
+
+    &::first-letter {
+        color: @yellow;
+    }
+}
+
+// line-after
+.line-after(@bg-color, @width, @margin-left) {
+    content: "";
+    display: block;
+    background-color: @bg-color;
+    width: @width;
+    margin-left: @margin-left;
+    height: 1px;
+}
+// title for blocks
+.title() {
+    font-size: 1.6rem;
+    font-weight: 300;
+    font-style: italic;
+    line-height: 2.1rem;
+    color: @title-color;
+}
+
+// sub or suptitle for blocks
+.subtitle() {
+    // font-weight: 400;
+    font-size: 1.4rem;
+    line-height: normal;
+    color: @subtitle-color; 
+}
+
+// name and profession for workers
+.worker-name() {
+    font-weight: 600;
+    font-size: 1.6rem;
+    line-height: 1.92rem;
+}
+
+.worker-profession() {
+    font-style: italic;
+    font-size: 1.6rem;
+    font-weight: 300;
+    font-style: italic;
+}
+
+// contacts input settings
+input[type="text"], textarea {
+    font-family: 'Myriad Pro';
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: @white;
+    outline: none;
+    padding: 0.7rem 0 1rem 1.4rem;
+    background-color: transparent;
+    border: 2px solid @white;
+    &::placeholder {
+        color: @white;
+    }
+}
+
+
+
+//Header section
+.header {
+    height: 65.4rem;
+    background: url("/img/header/bg.png") center 0 no-repeat;
+    &__bg {
+        user-select: none;
+    }
+
+    &__text {
+        margin-left: 4.3rem;
+        &__title {
+            padding-top: 6.5rem;
+            font-size: 6rem;
+            font-weight: 700;
+            color: @white;
+            letter-spacing: -.3rem;
+            line-height: 4.8rem;
+            &__color {
+                color: @yellow;
+            }
+        }   
+        &__links {
+            font-size: 1.8rem;
+            margin-top: 3.8rem;  
+            a { 
+                color: @yellow;
+                text-decoration: none;
+                transition: color .2s linear;
+                margin-right: 3.5rem;    
+                
+                &:hover,
+                &:focus {
+                    color: @white;
+                    border-bottom: .15rem solid @yellow;
+                }
+            }
+        }
+    }
+}
+
+//About section
+.about {
+    margin-top: 3.11rem;
+    &__text {
+        display: flex;
+        
+        &__head {
+            font-weight: 600;
+            margin-left: 13rem;
+            &__suptitle {
+                font-size: 3em;
+                color: @grey;
+
+                &:first-letter {
+                    font-size: 5rem;
+                }
+            }
+
+            &__title {
+                font-size: 8rem;
+                margin-top: -1rem;
+                
+                &:first-letter {
+                    color: @yellow;
+                }
+
+                &:after {
+                    .line-after(@line-after-grey, 50%, 50%);
+                }
+            }
+        }
+
+        &__divide-line {
+            min-width: .1rem;
+            max-height: 13rem;
+            margin: .6rem 2rem 2.3rem 16rem;
+            background-color: #C5C5C5;
+        }
+
+        &__description {
+            max-width: 60rem;
+            &__title {
+                .title();
+            }
+            
+            &__subtitle {
+                .subtitle();
+                margin-top: 2.7rem;
+            }
+        }
+    }
+   
+    &__cards {
+        margin-top: 5.4rem;
+        display: flex;
+        justify-content: center;
+        &__block {
+            &:not(:last-child) {
+                margin-right: 8.6rem;
+            }
+            &__img {
+                .icon();
+                width: 5.7rem;
+                height: 5.7rem;
+                border: 2px solid #FFA903;
+                margin: 0 auto;
+                background-color: #E8E8E8;
+
+            }
+        }
+        &__text {
+            max-width: 23rem;
+            text-align: center;
+            h3 {
+                font-weight: 700;
+                font-size: 1.8rem;
+                padding: 1.8rem 0 1.4rem 0;
+            }
+
+            p:not(:first-child) {
+                font-weight: 300;
+                font-style: italic;
+                line-height: normal;
+                font-size: 1rem;
+                margin-top: 1.2rem;
+            }
+        }
+    }
+}
+
+// Projects section
+.projects {
+    margin-top: 7.7rem;
+    &__text {
+        margin-left: 8rem;
+        &__head:after {
+            .line-after(@line-after-grey, 50%, 50%);
+         }
+         &__links {
+            font-weight: 700;
+            font-size: 0.9rem;
+            padding: 1.4rem 0 2.4rem 0;
+            text-transform: uppercase;
+            
+            a {
+                display: inline-block;
+                position: relative;
+                color: @black;
+                text-decoration: none;
+
+                &:nth-child(1) {
+                    margin-right: 3.5rem;
+                }
+
+                &:not(:first-child,:last-child) {
+                    margin-right: 1.5rem;
+                }
+
+                &:hover:after {
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    bottom: -0.2rem;
+                    width: 2.3rem;
+                    left: calc((100% - 2.3rem)/2);
+                    height: 1px;
+                    background-color: @yellow;
+                }
+            }
+         }
+    }
+    &__images {
+        text-align: center;
+        font-size: 0;
+        &__block {
+            &:not(:first-child) {
+                margin-top: 0.2rem;
+            }
+        }
+    }
+}
+
+// Process section
+.process {
+    margin-top: 4.5rem;
+    &__description {
+        margin-left: 8rem;
+
+        &__text:after {
+            .line-after(@line-after-grey, 13.3rem, 11rem);
+        }
+
+        &__title {
+            padding: 1.5rem 0 2.5rem 0;
+            color: @black;
+            .title();
+        }
+
+        &__subtitle {
+            .subtitle();
+            color: @grey;
+        }
+    }
+
+    &__stages {
+        margin-top: 10rem;
+        &__block {
+            display: flex;
+            margin-left: 17rem;
+
+            &:not(:first-child) {
+                .process__stages__block__description {
+                    max-width: 36rem;
+                }
+            }
+
+            &:nth-child(even) {
+                .process__stages__block__image {
+                    margin-left: 3.6rem;
+                    order: 2;
+                }
+            }
+
+            &:last-child {
+                .process__stages__block__description {
+                    margin-top: 8.6rem;
+                }
+            }
+
+            &__description {
+                margin-top: 2.5rem;
+                margin-left: 3.4rem;
+                &__head::first-letter {
+                    color: @black;
+                }
+                &__title {
+                    .title();
+                    margin: 2.2rem 0 2.5rem 0;
+                }
+
+                &__subtitle {
+                    .subtitle();  
+                }
+            } 
+        }
+    }
+}
+
+// Services section
+.services {
+    padding-bottom: 5.8rem;
+    margin-top: 4.5rem;
+    background: url(/img/services/bg1.png) center no-repeat;
+
+    &__head {
+        margin-left: 4.85rem;
+        padding-top: 4.8rem;
+        color: @white;
+
+        &:after {
+            .line-after(@line-after-white, 50%, 50%); 
+        }
+    }
+
+    &__description {
+        display: flex;
+        margin: 3.7rem 0 4.2rem 47.5rem;
+        color: @white;
+        &__col {
+            margin-right: 7.7rem;
+            max-width: 23.9rem;
+            &__row {
+                &:not(:first-child) {
+                    margin-top: 5.3rem;
+                }
+
+                &__title {
+                    font-size: 1.8rem;
+                    line-height: 2.16rem;
+                }
+
+                &__subtitle {
+                    font-size: 1.1rem;
+                    line-height: 1.32rem;
+                    margin-top: 2rem;
+                }
+            }
+        }
+    }
+}
+
+// Team section
+.team {
+    margin-top: 8rem;
+    display: flex;
+    &__head {
+        margin: 1.5rem 13.68rem 0 4.85rem;
+        &:after {
+            .line-after(@line-after-grey, 8.4rem, 7rem);
+        }
+    }
+
+    &__content {    
+        &__text {
+            max-width: 64rem;
+            &__title {
+                .title();
+            }
+
+            &__subtitle {
+                .subtitle();
+                padding: 2.5rem 0;
+            }
+        }
+
+        &__workers {
+            display: flex;
+            &__block {
+                text-align: center;
+
+                &:not(:last-child) {
+                    margin-right: 2rem;
+                }
+
+                &__text {
+                    margin-top: 1rem;
+                    &__name {
+                        .worker-name();
+                    }
+
+                    &__profession {
+                        .worker-profession();
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Reviews section
+.reviews {
+    margin-top: 12.65rem;
+    background-color: @black;
+    color: @white;
+    &__head{
+        margin-left: 4.85rem;
+        margin-top: 5rem;
+
+        &:after {
+            .line-after(@line-after-white, 50%, 50%);
+        }
+    }
+
+    &__content {
+        display: flex;
+        &__text {
+            margin: 6.7rem 6.84rem 13.8rem 9.15rem;
+            max-width: 63.9rem;
+            
+            &__title {
+                .title();
+                color: @white;
+            }
+
+            &__subtitle {
+                .subtitle();
+                margin-top: 1.6rem;
+                color: @white;
+            }
+        }
+
+        &__client {
+            text-align: center;
+            &__icon {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 12.7rem;
+                height: 12.7rem;
+                border-radius: 50%;
+                background-color: #FFA800;
+            }
+
+            &__text {
+                margin-top: 1.7rem;
+                &__name {
+                    .worker-name();
+                }
+
+                &__profession {
+                    .worker-profession();
+                }
+            }
+        }
+    }
+}
+
+// Blogs section
+.blogs {
+    display: flex;
+    margin-top: 3rem;
+    &__head {
+        margin-top: 2.8rem;
+        margin-left: 5.5rem;
+        &:after {
+            .line-after(@line-after-grey, 100%, 0);
+        }
+    }
+
+    &__buttons {
+        margin-top: 12rem;
+        &__btn {
+            font-weight: 600;
+            display: block;
+            font-size: 1.8rem;
+            line-height: 2.16rem;
+            color: @black;
+            background-color: transparent;
+            border: none;
+            outline: none;
+            transition: 0.3s;
+
+            &:not(:first-child) {
+                margin-top: 2.5rem;
+            }
+
+            &:hover,
+            &:focus {
+                color: @yellow;
+            }
+        }
+    }
+
+    &__cards {
+        display: flex;
+        margin-left: 10.7rem;
+        &__item {
+            &:not(last-child) {
+                margin-right: 7rem;
+            }
+
+            &__text {
+                &__date {
+                    font-size: 1.8rem;
+                    margin-top: 1.2rem;
+                    color: @yellow;
+                }
+
+                &__title {
+                    font-weight: 700;
+                    font-size: 1.5rem;
+                    font-weight: bold;
+                    padding: 3rem 0;
+                }
+
+                &__subtitle {
+                    
+                    font-style: italic;
+                    font-size: 1.2rem;
+                    font-weight: 500;
+                }
+            }
+        }
+    }
+}
+
+// Contacts section
+.contacts {
+    display: flex; 
+    margin-top: 11.5rem;
+    background-color: #2046b3;
+    &__map {
+        width: 50rem;
+        min-height: 73.7rem;
+        background: url('/img/contacts/map.png') 0 0 no-repeat;
+        transition: .3s;
+        overflow: hidden;
+        position: relative;
+        &:hover {
+            border-bottom-right-radius: 50%;
+        }
+        &__sign {
+            .icon();
+            position: absolute;
+            top: 30.8rem;
+            left: 24.3rem;
+            width: 5.7rem;
+            height: 5.7rem;
+            font-size: 1.4rem;
+            color: @white;
+            border: 2px solid @yellow;
+            border-radius: 50%; 
+            background-color: @black;
+            p {
+                &:first-letter {            
+                    color: @yellow;
+                }
+            }
+        }
+    }
+
+    &__content {
+        width: 70rem;   
+        color: @white;
+        padding-bottom: 4.4rem;
+        &__head {
+            margin-top: 5.2rem;
+            margin-left: 10rem;
+            &:after {
+                .line-after(@line-after-grey, 17.2rem, 0.7rem);
+                height: 2px;
+                margin-top: 0.9rem;
+            }
+        }
+
+        &__forms {
+            margin: 1.8rem 0 6.2rem 7.6rem;
+            &__wrapper {
+                max-width: 43rem;
+            }
+
+            &__name, &__message {
+                width: 41.2rem;
+            }
+
+            &__message {
+                padding-bottom: 5rem;
+            }
+
+            &__contacts {
+                display: flex;
+                justify-content: space-between;
+                width: 100%;
+                margin-top: 1.8rem;
+                margin-bottom: 1.2rem;
+                &__mobile {
+                    padding-right: 9.6rem;
+                    width: 16rem;
+                }
+
+                &__email {
+                    padding-right: 15.5rem;
+                    width: 20.6rem;
+                }
+            }
+
+            &__button {
+                margin-top: 2.2rem;
+                font-size: 1.6rem;
+                font-weight: 700;
+                background-color: @yellow;
+                padding: 1rem 3.5rem;
+                border: none;
+                outline: none;
+                color: @black;
+            }
+        }
+
+        &__location {
+            margin-left: 10rem;
+            &:after {
+                content: "";
+                display: block;
+                height: 1px;
+                width: 41.2rem;
+                margin: 6.8rem 0 0.8rem -2.2rem;
+                background-color: #7285bc;
+            }
+            &__title {
+                font-size: 1.6rem;
+                font-weight: 600;
+                margin-bottom: 3.6rem;                
+            }
+            &__wrapper {
+                display: flex;
+            }
+            &__col {
+                margin-right: 2.4rem;
+                &__name {
+                    font-size: 1.6rem;
+                    font-weight: 600;
+                    &:nth-child(1) {
+                        margin-bottom: 2.8rem;
+                    }
+
+                    &:nth-child(2) {
+                        margin-bottom: 1.8rem;
+                    }
+                }
+
+                &__description {
+                    font-size: 1.2rem;
+                    &:nth-child(1) {
+                        margin-top: 3px;
+                        margin-bottom: 3.1rem;
+                    }
+
+                    &:nth-child(2) {
+                        margin-bottom: 2.2rem;
+                    }
+                }
+            }
+        }
+
+        &__social {
+            margin-left: 10rem;
+            display: flex;
+            &__icon {
+                margin-right: 0.5rem;
+            }
+        }
+    }
+}
+
+// Footer section
+.footer {
+    height: 65.4rem;
+    display: flex;
+    margin-top: 7.3rem;
+    
+    &__content {
+        padding: 5.5rem 9.7rem 4.5rem 2.8rem;
+        background-color: @black;
+        color: @white;
+        &__head {
+            font-size: 6rem;
+            font-weight: 700;
+            &::first-letter {
+                font-size: 6.5rem;
+            }
+        }
+
+        .nav {
+            font-size: 1.6rem;
+            font-weight: 600;
+            margin-top: 6rem;
+            text-transform: uppercase;
+            &:after {
+                .line-after(@yellow, 11.5rem, 0);
+                height: 2px;
+                margin-top: 5rem;
+                margin-bottom: 1.4rem;
+            }
+            &__link {
+                &:not(:last-child) {
+                    margin-bottom: 2.6rem;
+                }
+
+                a {
+                    text-decoration: none;
+                    color: @white;
+                    transition: 1s;
+                    &:hover {
+                        color: @yellow;
+                    }
+                }
+            }
+        }
+
+        &__social {
+            &__icon {
+                margin-right: 0.5rem;
+            }
+        }
+    }
+
+    &__man {
+        width: 87.7rem;
+        background: url("/img/sublime/man.png") center no-repeat;
+        background-color: @black;
+        background-size: cover;
+
+        &__text {
+            font-size: 11.1rem;
+            font-weight: 700;
+            color: @white;
+            letter-spacing: -0.3rem;
+            margin-top: 34.5rem;
+            margin-left: 2.5rem;
+            .color {
+                color: @yellow;
+            }    
+        }
+    }
+}
